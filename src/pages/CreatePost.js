@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { addDoc, collection } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const CreatePost = ({isAuth}) => {
-
   const [title, setTitle] = useState('');
   const [post, setPost] = useState('');
 
@@ -14,7 +15,9 @@ const CreatePost = ({isAuth}) => {
   const handleCreate = async (e) => {
     e.preventDefault();
     if (title === '' || post === '') {
-      alert('Fill the fields')
+      toast.error(
+        <h3>Don't forget to provide information for all the mandatory fields.</h3>
+      );
       return false;
     } else {
       try {
@@ -41,6 +44,19 @@ const CreatePost = ({isAuth}) => {
 
   return (
     <div className='w-11/12 md:w-5/6 mx-auto'>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        closeButton={true}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <form className='md:w-4/6 mx-auto'>
         <h2 className='mb-8 font-semibold text-slate-800 text-3xl'>Create a Post</h2>
         <div className="mb-5">

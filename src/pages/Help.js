@@ -1,5 +1,8 @@
 import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 
 const Help = () => {
 
@@ -24,7 +27,9 @@ const Help = () => {
     };
 
     if (!validateForm()) {
-      alert('Please fill in all fields!');
+      toast.error(
+        <h3>Please fill out all required fields before submitting the form.</h3>
+      );
       return;
     }
 
@@ -45,6 +50,9 @@ const Help = () => {
             user_email: '',
             message: '',
           });
+          toast.success(
+            <h3>Thank you! Your information has been sent.</h3>
+          );
         },
         (error) => {
           console.log(error.text);
@@ -61,6 +69,19 @@ const Help = () => {
 
   return (
     <div className='w-11/12 md:w-5/6 mx-auto'>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        closeButton={true}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <form className='md:w-4/6 mx-auto' ref={form} onSubmit={sendEmail}>
         <h2 className='mb-8 font-semibold text-slate-800 text-3xl'>Contact Here!</h2>
         <div className="mb-5">
