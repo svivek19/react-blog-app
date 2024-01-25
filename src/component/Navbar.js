@@ -81,25 +81,28 @@ function Navbar({ isAuth, setIsAuth }) {
                                         </NavLink>
                                     </li>
                                     {isAuth && (
-                                        <li>
-                                            <NavLink
-                                                to={'/createpost'}
-                                                className={`hover:text-blue-700 ${location.pathname === '/createpost' && 'text-blue-700'}`}
-                                                aria-current="page"
-                                            >
-                                                Create Post
-                                            </NavLink>
-                                        </li>
+                                        <ul className='flex'>
+                                            <li>
+                                                <NavLink
+                                                    to={'/createpost'}
+                                                    className={`hover:text-blue-700 mr-8 ${location.pathname === '/createpost' && 'text-blue-700'}`}
+                                                    aria-current="page"
+                                                >
+                                                    Create Post
+                                                </NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink
+                                                    to={'/dashboard'}
+                                                    className={`hover:text-blue-700 ${location.pathname === '/dashboard' && 'text-blue-700'}`}
+                                                    aria-current="page"
+                                                >
+                                                    Dashboard
+                                                </NavLink>
+                                            </li>
+                                        </ul>
                                     )}
-                                    <li>
-                                        <NavLink
-                                            to={'/about'}
-                                            className={`hover:text-blue-700 ${location.pathname === '/about' && 'text-blue-700'}`}
-                                            aria-current="page"
-                                        >
-                                            About
-                                        </NavLink>
-                                    </li>
+
                                     <li>
                                         <NavLink
                                             to={'/help'}
@@ -170,6 +173,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                             </NavLink>
                                         </li>
                                         {isAuth && (
+                                            <>
                                             <li>
                                                 <NavLink
                                                     to={'/createpost'}
@@ -180,17 +184,19 @@ function Navbar({ isAuth, setIsAuth }) {
                                                     Create Post
                                                 </NavLink>
                                             </li>
+                                             <li>
+                                             <NavLink
+                                                 to={'/dashboard'}
+                                                 className={`block py-2 px-3 rounded ${location.pathname === '/dashboard' && 'bg-blue-700 text-white'}`}
+                                                 aria-current="page"
+                                                 onClick={closeMobileMenu}
+                                             >
+                                                 Dashboard
+                                             </NavLink>
+                                         </li>
+                                            </>
                                         )}
-                                        <li>
-                                            <NavLink
-                                                to={'/about'}
-                                                className={`block py-2 px-3 rounded ${location.pathname === '/about' && 'bg-blue-700 text-white'}`}
-                                                aria-current="page"
-                                                onClick={closeMobileMenu}
-                                            >
-                                                About
-                                            </NavLink>
-                                        </li>
+                                       
                                         <li>
                                             <NavLink
                                                 to={'/help'}

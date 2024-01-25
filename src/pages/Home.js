@@ -63,6 +63,7 @@ const Home = ({ isAuth }) => {
     )
   }
 
+
   return (
     <div className="container mx-auto p-4 bg-gray-100">
       {postList.length === 0 ? (
@@ -76,9 +77,9 @@ const Home = ({ isAuth }) => {
             </p>
             <div className="md:flex items-center justify-between mb-2">
               <p className="text-gray-500 text-sm mb-2 md:mb-0">
-                Author: <span className="text-purple-700">{post.author.name}</span>
+                Author: <span className="text-purple-700">{post.author?.name}</span>
               </p>
-              {isAuth && post.author.id === auth.currentUser.uid && (
+              {isAuth && post.author?.id === auth.currentUser?.uid && (
                 <div className="flex">
                   <button
                     className="bg-red-500 px-3 py-1 text-white rounded-md text-sm mr-2"
@@ -103,6 +104,7 @@ const Home = ({ isAuth }) => {
             </button>
           </div>
         ))
+        
       )}
     </div>
   )
