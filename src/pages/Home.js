@@ -79,22 +79,6 @@ const Home = ({ isAuth }) => {
               <p className="text-gray-500 text-sm mb-2 md:mb-0">
                 Author: <span className="text-purple-700">{post.author?.name}</span>
               </p>
-              {isAuth && post.author?.id === auth.currentUser?.uid && (
-                <div className="flex">
-                  <button
-                    className="bg-red-500 px-3 py-1 text-white rounded-md text-sm mr-2"
-                    onClick={() => handleDelete(post.id)}
-                  >
-                    Delete
-                  </button>
-                  <Link
-                    to={`/edit/${post.id}`}
-                    className="bg-slate-800 px-3 py-1 text-white rounded-md text-sm"
-                  >
-                    Edit
-                  </Link>
-                </div>
-              )}
             </div>
             <button
               className="text-blue-500 hover:underline cursor-pointer text-sm"

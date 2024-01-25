@@ -35,7 +35,7 @@ const Edit = () => {
         title,
         post: content,
       });
-      navigate('/');
+      navigate('/dashboard');
     } catch (error) {
       console.error('Error updating post: ', error);
     }
