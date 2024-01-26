@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Help from './pages/Help'
 import { useState } from 'react';
 import Edit from './pages/Edit';
+import PostDetail from './pages/PostDetail';
 
 function App() {
 
@@ -17,12 +18,13 @@ function App() {
     <Router>
       <Navbar isAuth={isAuth} setIsAuth={setIsAuth} />
       <Routes>
-        <Route index element={<Home isAuth={isAuth}/>} />
-        <Route path='/createpost' element={<CreatePost isAuth={isAuth}/>} />
+        <Route index element={<Home isAuth={isAuth} />} />
+        <Route path='/createpost' element={<CreatePost isAuth={isAuth} />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/help' element={<Help />} />
         <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
-        <Route path='/edit/:postId' element={<Edit/>} />
+        <Route path='/edit/:postId' element={<Edit />} />
+        <Route path='/post/:postId' element={<PostDetail />} />
       </Routes>
     </Router>
   );

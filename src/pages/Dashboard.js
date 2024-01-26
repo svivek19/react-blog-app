@@ -1,10 +1,9 @@
-//dashboard.js
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import { BallTriangle } from 'react-loader-spinner';
+import Swal from 'sweetalert2';
 
 const Dashboard = () => {
     const [loading, setLoading] = useState(true);
@@ -33,9 +32,28 @@ const Dashboard = () => {
     }, []);
 
     const handleDelete = async (id) => {
-        const postDoc = doc(db, 'posts', id);
-        await deleteDoc(postDoc);
-        setUserPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+        // Display a confirmation message using SweetAlert
+        const result = await Swal.fire({
+            title: "Are you sure you want to delete this blog?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        });
+
+        // If the user confirms the deletion
+        if (result.isConfirmed) {
+            try {
+                const postDoc = doc(db, 'posts', id);
+                await deleteDoc(postDoc);
+                setUserPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+                Swal.fire("Deleted!", "Your blog has been deleted.", "success");
+            } catch (error) {
+                console.error('Error deleting the post: ', error);
+                Swal.fire("Error", "An error occurred while deleting the blog.", "error");
+            }
+        }
     };
 
     return (
@@ -87,9 +105,8 @@ const Dashboard = () => {
                         ))
                     )}
                 </div>
-            )
-            }
-        </div >
+            )}
+        </div>
     );
 };
 

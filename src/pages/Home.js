@@ -1,12 +1,11 @@
+// Import necessary libraries
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
-// loading animation
 import { BallTriangle } from 'react-loader-spinner';
 
 const Home = ({ isAuth }) => {
-
   const [postList, setPostList] = useState([]);
   const [loading, setLoading] = useState(false);
   const postsCollectionRef = collection(db, 'posts');
@@ -17,7 +16,6 @@ const Home = ({ isAuth }) => {
       const querySnapshot = await getDocs(postsCollectionRef);
       const posts = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       setPostList(posts);
-      // console.log(posts);
     } catch (error) {
       console.error('Error getting posts: ', error);
     } finally {
@@ -29,20 +27,6 @@ const Home = ({ isAuth }) => {
     getPosts();
   }, []);
 
-
-  const handleDelete = async (id) => {
-    const postDoc = doc(db, 'posts', id);
-    await deleteDoc(postDoc);
-    getPosts();
-  }
-
-  const toggleReadMore = (postId) => {
-    setPostList((prevPosts) =>
-      prevPosts.map((post) =>
-        post.id === postId ? { ...post, isExpanded: !post.isExpanded } : post
-      )
-    );
-  };
 
   if (loading) {
     return (
@@ -63,7 +47,6 @@ const Home = ({ isAuth }) => {
     )
   }
 
-
   return (
     <div className="container mx-auto p-4 bg-gray-100">
       {postList.length === 0 ? (
@@ -80,18 +63,14 @@ const Home = ({ isAuth }) => {
                 Author: <span className="text-purple-700">{post.author?.name}</span>
               </p>
             </div>
-            <button
-              className="text-blue-500 hover:underline cursor-pointer text-sm"
-              onClick={() => toggleReadMore(post.id)}
-            >
-              {post.isExpanded ? 'Read less' : 'Read more'}
-            </button>
+            <Link to={`/post/${post.id}`} className="text-blue-500 hover:underline cursor-pointer text-sm">
+              View Post
+            </Link>
           </div>
         ))
-        
       )}
     </div>
   )
 }
 
-export default Home
+export default Home;
