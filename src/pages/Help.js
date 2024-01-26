@@ -75,7 +75,7 @@ const Help = () => {
   };
 
   return (
-    <div className='w-11/12 md:w-5/6 mx-auto'>
+    <div className='mt-28 w-11/12 md:w-5/6 mx-auto'>
       <ToastContainer
         position="top-center"
         autoClose={3000}

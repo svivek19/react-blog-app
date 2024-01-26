@@ -57,7 +57,7 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="container mx-auto p-4 bg-gray-100">
+        <div className="mt-28  container mx-auto p-4 bg-gray-100">
             {loading ? (
                 <div className="flex items-center justify-center h-4/5">
                     <div className="text-center">

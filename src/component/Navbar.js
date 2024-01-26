@@ -29,7 +29,7 @@ function Navbar({ isAuth, setIsAuth }) {
 
     return (
         <div>
-            <div className='mb-28 hidden md:block'>
+            <div className='hidden md:block'>
                 <nav className="fixed w-full z-20 top-0 start-0 border-b border-gray-200 bg-slate-50">
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                         <div className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -118,7 +118,7 @@ function Navbar({ isAuth, setIsAuth }) {
                     </div>
                 </nav>
             </div>
-            <div className='mb-28 block md:hidden'>
+            <div className='block md:hidden'>
                 <nav className="fixed w-full z-20 top-0 start-0 border-b border-gray-200 bg-slate-50">
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                         <div className="flex items-center space-x-3 rtl:space-x-reverse">

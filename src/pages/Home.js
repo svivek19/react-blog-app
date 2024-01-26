@@ -1,11 +1,10 @@
-// Import necessary libraries
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore';
-import { auth, db } from '../firebase';
+import { getDocs, collection } from 'firebase/firestore';
+import { db } from '../firebase';
 import { BallTriangle } from 'react-loader-spinner';
 
-const Home = ({ isAuth }) => {
+const Home = () => {
   const [postList, setPostList] = useState([]);
   const [loading, setLoading] = useState(false);
   const postsCollectionRef = collection(db, 'posts');
@@ -30,7 +29,7 @@ const Home = ({ isAuth }) => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-4/5">
+      <div className="mt-28 flex items-center justify-center h-4/5">
         <div className="text-center">
           <BallTriangle
             height={100}
@@ -48,7 +47,7 @@ const Home = ({ isAuth }) => {
   }
 
   return (
-    <div className="container mx-auto p-4 bg-gray-100">
+    <div className="container mt-28 mx-auto p-4 bg-gray-100">
       {postList.length === 0 ? (
         <h3 className="text-xl font-bold mb-4">No posts added!</h3>
       ) : (

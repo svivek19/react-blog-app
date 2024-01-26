@@ -42,7 +42,7 @@ const Edit = () => {
   };
 
   return (
-    <div className='w-11/12 md:w-5/6 mx-auto'>
+    <div className='mt-28  w-11/12 md:w-5/6 mx-auto'>
       <div className='md:w-4/6 mx-auto'>
         <h2 className='mb-8 font-semibold text-slate-800 text-3xl'>Edit Post</h2>
         <div className="mb-5">

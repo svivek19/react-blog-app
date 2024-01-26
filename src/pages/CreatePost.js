@@ -66,7 +66,7 @@ const CreatePost = ({ isAuth }) => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-4/5">
+      <div className="mt-28 flex items-center justify-center h-4/5">
         <div className="text-center">
           <BallTriangle
             height={100}
@@ -84,7 +84,7 @@ const CreatePost = ({ isAuth }) => {
   }
 
   return (
-    <div className='w-11/12 md:w-5/6 mx-auto'>
+    <div className='mt-28 w-11/12 md:w-5/6 mx-auto'>
       <ToastContainer
         position="top-center"
         autoClose={3000}
