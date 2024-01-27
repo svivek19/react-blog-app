@@ -1,50 +1,94 @@
-import React, { useState } from 'react';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { db } from '../firebase';
+import { useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { doc, onSnapshot, updateDoc } from "firebase/firestore";
+import { auth, db } from "../firebase";
+import { arrayUnion } from "firebase/firestore";
 
 const Comment = ({ postId }) => {
-  const [commentText, setCommentText] = useState('');
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
+  const [isLoadingComments, setIsLoadingComments] = useState(true);
+  const authInstance = getAuth();
+  const [currentlyLoggedinUser, setCurrentlyLoggedinUser] = useState(null);
+  const commentRef = doc(db, 'posts', postId);
 
-  const handleCommentSubmit = async (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    const docRef = doc(db, "posts", postId);
 
-    // Add comment to Firestore
+    const unsubscribe = onSnapshot(docRef, (snapshot) => {
+      if (snapshot.exists()) {
+        setComments(snapshot.data().comments || []);
+        setIsLoadingComments(false);
+      } else {
+        console.error('Post not found.');
+      }
+    });
+
+    const authUnsubscribe = onAuthStateChanged(authInstance, (user) => {
+      setCurrentlyLoggedinUser(user);
+    });
+
+    return () => {
+      unsubscribe(); // Cleanup subscription on unmount
+      authUnsubscribe(); // Cleanup auth subscription on unmount
+    };
+  }, [postId, authInstance]);
+
+  const delComment = async (commentId) => {
     try {
-      const commentsCollectionRef = collection(db, 'comments');
-      await addDoc(commentsCollectionRef, {
-        postId,
-        text: commentText,
-        // Add other fields like author, timestamp, etc.
-        timestamp: serverTimestamp(),
+      await updateDoc(commentRef, {
+        comments: comments.filter(comment => comment.commentId !== commentId)
       });
-
-      // Clear the comment input after submission
-      setCommentText('');
     } catch (error) {
-      console.error('Error adding comment: ', error);
+      console.error('Error deleting comment: ', error);
+    }
+  };
+
+  const handleChangeComment = (e) => {
+    if (e.key === 'Enter' && comment.trim() !== "") {
+      updateDoc(commentRef, {
+        comments: arrayUnion({
+          commentId: Date.now(),
+          user: currentlyLoggedinUser ? currentlyLoggedinUser.uid : null,
+          userName: currentlyLoggedinUser ? currentlyLoggedinUser.displayName : "Anonymous",
+          comment: comment.trim(),
+          createdAt: new Date(),
+        })
+      }).then(() => {
+        setComment("");
+      });
     }
   };
 
   return (
-    <div className="p-4 rounded-md shadow-md">
-      <form onSubmit={handleCommentSubmit}>
-        <textarea
-          className="w-full p-2 mb-2 border rounded-md"
-          value={commentText}
-          onChange={(e) => setCommentText(e.target.value)}
-          placeholder="Add a comment..."
-          rows="4"
-          cols="50"
-        />
-        <button
-          type="submit"
-          className="bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
-        >
-          Submit Comment
-        </button>
-      </form>
-    </div>
+    <div>
+      {isLoadingComments ? (
+        <p>Loading comments...</p>
+      ) : (
+        comments.map(({ commentId, user, comment, userName }) => (
+          <div key={commentId} className="mb-2">
+            <p>
+              <span className="font-bold">{userName}:</span> {comment}
+            </p>
+            {user === currentlyLoggedinUser?.uid && (
+              <button onClick={() => delComment(commentId)} className="text-red-500">
+                Delete
+              </button>
+            )}
+          </div>
+        ))
+      )}
 
+      {currentlyLoggedinUser && (
+        <input
+          type="text"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          placeholder="Add a comment..."
+          onKeyUp={(e) => handleChangeComment(e)}
+        />
+      )}
+    </div>
   );
 };
 

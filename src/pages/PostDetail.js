@@ -1,6 +1,8 @@
+// PostDetail.js
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { doc, getDoc, collection, query, where, getDocs, orderBy, onSnapshot } from 'firebase/firestore';
+import { doc, getDoc, collection, query, where, onSnapshot, orderBy } from 'firebase/firestore';
 import { db } from '../firebase';
 import { BallTriangle } from 'react-loader-spinner';
 import bg from '../assets/bg.webp';
@@ -9,9 +11,7 @@ import Comment from '../component/Comment';
 const PostDetail = () => {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
-  const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isCommentLoading, setIsCommentLoading] = useState(true);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -24,38 +24,15 @@ const PostDetail = () => {
         }
       } catch (error) {
         console.error('Error getting post: ', error);
-      }
-    };
-
-    const fetchComments = async () => {
-      try {
-        const commentsQuery = query(
-          collection(db, 'comments'),
-          where('postId', '==', postId),
-          orderBy('timestamp', 'asc')
-        );
-
-        // Use onSnapshot for real-time updates
-        const unsubscribe = onSnapshot(commentsQuery, (snapshot) => {
-          const commentsData = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-          setComments(commentsData);
-          setIsCommentLoading(false);
-        });
-
-        // Cleanup function to unsubscribe when component unmounts
-        return () => unsubscribe();
-      } catch (error) {
-        console.error('Error getting comments: ', error);
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchPost();
-    fetchComments();
   }, [postId]);
 
-  if (isLoading || isCommentLoading) {
+  if (isLoading) {
     return (
       <div className="mt-28 flex items-center justify-center h-4/5">
         <div className="text-center">
@@ -95,17 +72,6 @@ const PostDetail = () => {
           </div>
           <div className='mt-4'>
             <Comment postId={postId} />
-            <h3 className="text-lg font-bold mb-2">Comments:</h3>
-            {comments.length === 0 ? (
-              <p>No comments yet.</p>
-            ) : (
-              <ul>
-                {comments.map((comment) => (
-                  <li key={comment.id}>{comment.text}</li>
-                  // Display other comment details as needed
-                ))}
-              </ul>
-            )}
           </div>
         </div>
       </div>
