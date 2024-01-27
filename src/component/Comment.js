@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, onSnapshot, updateDoc } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import { db } from "../firebase";
 import { arrayUnion } from "firebase/firestore";
 
 const Comment = ({ postId }) => {
@@ -82,12 +82,13 @@ const Comment = ({ postId }) => {
         comments.map(({ commentId, user, comment, userName }) => (
           <div key={commentId} className="mb-2 border p-3 rounded-lg md:flex justify-between overflow-x-hidden">
             <p className="text-gray-700 whitespace-pre-wrap">
-              <span className="font-bold text-indigo-900">{userName}:</span> {comment}
+              <span className="font-bold text-indigo-900">{userName}:</span> 
+              <p className="font-medium mt-1 text-gray-900">{comment}:</p> 
             </p>
             {user === currentlyLoggedinUser?.uid && (
               <button
                 onClick={() => delComment(commentId)}
-                className="text-red-500 inline-block px-3 py-1 border border-red-500 rounded-md transition duration-300 hover:bg-red-500 mt-4 md:mt-0 hover:text-white focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200"
+                className="text-red-500 px-4 py-1 border border-red-500 rounded-md transition duration-300 hover:bg-red-500 mt-4 md:mt-0 hover:text-white focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200"
               >
                Delete
               </button>
