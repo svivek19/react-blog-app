@@ -56,13 +56,13 @@ const Home = () => {
             <div className="flex flex-1 flex-col justify-between">
               <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
                 <a href="#">
-                  <h3 className="font-bold uppercase text-gray-900">
+                  <h3 className="font-bold text-2xl uppercase text-gray-900">
                     {post.title}
                   </h3>
                 </a>
 
                 <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                  {post.isExpanded ? post.post : `${post.post.slice(0, 100)}...`}
+                  {post.isExpanded ? post.post : `${post.post.slice(0, 150)}...`}
                 </p>
 
 

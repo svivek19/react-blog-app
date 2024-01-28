@@ -57,7 +57,7 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="mt-28  container mx-auto p-4 bg-gray-100">
+        <div className="mt-28 bg-gray-50 container mx-auto p-4">
             {loading ? (
                 <div className="flex items-center justify-center h-4/5">
                     <div className="text-center">
@@ -79,26 +79,23 @@ const Dashboard = () => {
                         <h3 className="text-xl font-bold mb-4">No posts added!</h3>
                     ) : (
                         userPosts.map((post) => (
-                            <div key={post.id} className="bg-white shadow-md p-4 mb-4">
-                                <h2 className="text-lg font-bold mb-2 text-indigo-700">{post.title}</h2>
-                                <p className="text-gray-700 mb-4">{post.post}</p>
-                                <div className="md:flex items-center justify-between mb-2">
-                                    <p className="text-gray-500 text-sm mb-2 md:mb-0">
-                                        Author: <span className="text-purple-700">{post.author?.name}</span>
-                                    </p>
-                                    <div className="flex">
-                                        <button
-                                            className="bg-red-500 px-3 py-1 text-white rounded-md text-sm mr-2"
-                                            onClick={() => handleDelete(post.id)}
-                                        >
-                                            Delete
-                                        </button>
-                                        <Link
-                                            to={`/edit/${post.id}`}
-                                            className="bg-slate-800 px-3 py-1 text-white rounded-md text-sm"
-                                        >
-                                            Edit
-                                        </Link>
+                            <div key={post.id} className="w-full px-8 py-4 bg-white rounded-lg shadow-md items-center">
+                                <div className="md:flex justify-between">
+
+                                    <div className="mt-2">
+                                        <h2 className="text-xl font-bold text-gray-700" tabIndex="0">{post.title}</h2>
+                                        <p className="mt-2 text-gray-600 text-justify mb-3">{post.isExpanded ? post.post : `${post.post.slice(0, 100)}...`}</p>
+                                    </div>
+                                    <div>
+                                        <Link to={`/edit/${post.id}`} className="bg-slate-800 mr-2 md:mr-0 mx-0 md:mx-2 px-3 py-1 text-white rounded-md text-sm" tabIndex="0" role="button">Edit</Link>
+                                        <button className="bg-red-500 px-3 py-1 text-white rounded-md text-sm mr-2" tabIndex="0" onClick={() => handleDelete(post.id)}>Delete</button>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center justify-between mt-4">
+                                    <Link to={`/post/${post.id}`} className="text-blue-600 hover:underline" tabIndex="0">Read more</Link>
+                                    <div className=" items-center">
+                                        <p className="font-medium text-slate-500 cursor-pointer" tabIndex="0">~{post?.author.name}</p>
                                     </div>
                                 </div>
                             </div>

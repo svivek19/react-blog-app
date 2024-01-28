@@ -81,10 +81,10 @@ const Comment = ({ postId }) => {
       ) : (
         comments.map(({ commentId, user, comment, userName }) => (
           <div key={commentId} className="mb-2 border p-3 rounded-lg md:flex justify-between overflow-x-hidden">
-            <p className="text-gray-700 whitespace-pre-wrap">
+            <div className="text-gray-700 whitespace-pre-wrap">
               <span className="font-bold text-indigo-900">{userName}:</span> 
               <p className="font-medium mt-1 text-gray-900">{comment}:</p> 
-            </p>
+            </div>
             {user === currentlyLoggedinUser?.uid && (
               <button
                 onClick={() => delComment(commentId)}
