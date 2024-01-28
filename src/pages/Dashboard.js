@@ -57,7 +57,7 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="mt-28 bg-gray-50 container mx-auto p-4">
+        <div className="mt-28 bg-gray-50 container mx-auto p-2 rounded-md">
             {loading ? (
                 <div className="flex items-center justify-center h-4/5">
                     <div className="text-center">
@@ -79,15 +79,14 @@ const Dashboard = () => {
                         <h3 className="text-xl font-bold mb-4">No posts added!</h3>
                     ) : (
                         userPosts.map((post) => (
-                            <div key={post.id} className="w-full px-8 py-4 bg-white rounded-lg shadow-md items-center">
+                            <div key={post.id} className="w-full px-8 py-4 mb-3 bg-white rounded-lg shadow-md items-center">
                                 <div className="md:flex justify-between">
-
                                     <div className="mt-2">
                                         <h2 className="text-xl font-bold text-gray-700" tabIndex="0">{post.title}</h2>
                                         <p className="mt-2 text-gray-600 text-justify mb-3">{post.isExpanded ? post.post : `${post.post.slice(0, 100)}...`}</p>
                                     </div>
                                     <div>
-                                        <Link to={`/edit/${post.id}`} className="bg-slate-800 mr-2 md:mr-0 mx-0 md:mx-2 px-3 py-1 text-white rounded-md text-sm" tabIndex="0" role="button">Edit</Link>
+                                        <Link to={`/edit/${post.id}`} className="bg-slate-800 mr-2 px-3 py-1 text-white rounded-md text-sm" tabIndex="0" role="button">Edit</Link>
                                         <button className="bg-red-500 px-3 py-1 text-white rounded-md text-sm mr-2" tabIndex="0" onClick={() => handleDelete(post.id)}>Delete</button>
                                     </div>
                                 </div>

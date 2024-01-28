@@ -83,12 +83,12 @@ const Comment = ({ postId }) => {
           <div key={commentId} className="mb-2 border p-3 rounded-lg md:flex justify-between overflow-x-hidden">
             <div className="text-gray-700 whitespace-pre-wrap">
               <span className="font-bold text-indigo-900">{userName}:</span> 
-              <p className="font-medium mt-1 text-gray-900">{comment}:</p> 
+              <p className="font-medium mt-1 text-gray-900">{comment}</p> 
             </div>
             {user === currentlyLoggedinUser?.uid && (
               <button
                 onClick={() => delComment(commentId)}
-                className="text-red-500 px-4 py-1 border border-red-500 rounded-md transition duration-300 hover:bg-red-500 mt-4 md:mt-0 hover:text-white focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200"
+                className="text-red-500 px-5 py-1 md:py-0 border border-red-500 rounded-md transition duration-300 hover:bg-red-500 mt-4 md:mt-0 hover:text-white focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200"
               >
                Delete
               </button>

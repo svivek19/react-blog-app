@@ -47,7 +47,7 @@ const Home = () => {
   }
 
   return (
-    <div className="container mt-28 mx-auto p-4 bg-gray-50">
+    <div className="container mt-28 mx-auto p-2 bg-gray-50 rounded-md">
       {postList.length === 0 ? (
         <h3 className="text-xl font-bold mb-4">No posts added!</h3>
       ) : (
@@ -55,12 +55,9 @@ const Home = () => {
           <article key={post.id} className="flex bg-white transition mb-4 hover:shadow-xl">
             <div className="flex flex-1 flex-col justify-between">
               <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                <a href="#">
-                  <h3 className="font-bold text-2xl uppercase text-gray-900">
-                    {post.title}
-                  </h3>
-                </a>
-
+                <h3 className="font-bold text-2xl uppercase text-gray-900">
+                  {post.title}
+                </h3>
                 <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
                   {post.isExpanded ? post.post : `${post.post.slice(0, 150)}...`}
                 </p>
