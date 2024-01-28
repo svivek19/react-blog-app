@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../firebase';
 import { BallTriangle } from 'react-loader-spinner';
+import EmptyPage from '../component/EmptyPage'
 
 const Home = () => {
   const [postList, setPostList] = useState([]);
@@ -49,7 +50,7 @@ const Home = () => {
   return (
     <div className="container mt-28 mx-auto p-2 bg-gray-50 rounded-md">
       {postList.length === 0 ? (
-        <h3 className="text-xl font-bold mb-4">No posts added!</h3>
+        <EmptyPage/>
       ) : (
         postList.map((post) => (
           <article key={post.id} className="flex bg-white transition mb-4 hover:shadow-xl">

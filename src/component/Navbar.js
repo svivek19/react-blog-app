@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useMediaQuery } from 'react-responsive';
+import Settings from './Settings';
 
 function Navbar({ isAuth, setIsAuth }) {
     const location = useLocation();
@@ -67,6 +68,9 @@ function Navbar({ isAuth, setIsAuth }) {
                                     Logout
                                 </Link>
                             )}
+                            <div>
+                                <Settings/>
+                            </div>
                         </div>
                         {!isMobile && (
                             <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
@@ -88,7 +92,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                                     className={`hover:text-blue-700 mr-8 ${location.pathname === '/createpost' && 'text-blue-700'}`}
                                                     aria-current="page"
                                                 >
-                                                    Create Post
+                                                    Create Blog
                                                 </NavLink>
                                             </li>
                                             <li>
@@ -154,6 +158,9 @@ function Navbar({ isAuth, setIsAuth }) {
                                         Logout
                                     </Link>
                                 )}
+                                <div>
+                                    <Settings/>
+                                </div>
                             </div>
                         )}
 
@@ -181,7 +188,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                                     aria-current="page"
                                                     onClick={closeMobileMenu}
                                                 >
-                                                    Create Post
+                                                    Create Blog
                                                 </NavLink>
                                             </li>
                                              <li>

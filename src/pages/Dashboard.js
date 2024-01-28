@@ -4,6 +4,7 @@ import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import { BallTriangle } from 'react-loader-spinner';
 import Swal from 'sweetalert2';
+import EmptyPage from '../component/EmptyPage';
 
 const Dashboard = () => {
     const [loading, setLoading] = useState(true);
@@ -76,7 +77,7 @@ const Dashboard = () => {
             ) : (
                 <div>
                     {userPosts.length === 0 ? (
-                        <h3 className="text-xl font-bold mb-4">No posts added!</h3>
+                        <EmptyPage/>
                     ) : (
                         userPosts.map((post) => (
                             <div key={post.id} className="w-full px-8 py-4 mb-3 bg-white rounded-lg shadow-md items-center">
