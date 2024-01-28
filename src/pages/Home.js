@@ -27,7 +27,6 @@ const Home = () => {
     getPosts();
   }, []);
 
-
   if (loading) {
     return (
       <div className="mt-28 flex items-center justify-center h-4/5">

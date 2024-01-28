@@ -8,10 +8,12 @@ import Help from './pages/Help'
 import { useState } from 'react';
 import Edit from './pages/Edit';
 import PostDetail from './pages/PostDetail';
+import UserProfileCard from './component/UserProfileCard';
 
 function App() {
 
   const [isAuth, setIsAuth] = useState(localStorage.getItem('isAuth'));
+
 
 
   return (
@@ -25,6 +27,7 @@ function App() {
         <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
         <Route path='/edit/:postId' element={<Edit />} />
         <Route path='/post/:postId' element={<PostDetail />} />
+        <Route path='/userprofile' element={<UserProfileCard />} />
       </Routes>
     </Router>
   );
