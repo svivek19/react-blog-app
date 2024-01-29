@@ -61,20 +61,26 @@ const Comment = ({ postId }) => {
   };
 
   return (
-    <div className="mt-6">
-      <h3 className="text-center text-2xl text-slate-800">Comments</h3>
+    <div>
+      <h3 className="text-center leading-loose text-3xl text-violet-950 font-bold">Comments</h3>
       <div className="mb-3">
-        {currentlyLoggedinUser && (
-          <input
-            type="text"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            placeholder="Add a comment..."
-            className="mt-4 p-2 w-full border rounded-md"
-            onKeyUp={(e) => handleChangeComment(e)}
-          />
-        )}
+        <input
+          type="text"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          placeholder={
+            currentlyLoggedinUser
+              ? "Add a comment..."
+              : "Login to add a comment"
+          }
+          className="mt-4 p-2 w-full border rounded-md"
+          onKeyUp={(e) =>
+            currentlyLoggedinUser ? handleChangeComment(e) : null
+          }
+          disabled={!currentlyLoggedinUser}
+        />
       </div>
+
 
       {isLoadingComments ? (
         <p className="text-center text-gray-500">Loading comments...</p>
@@ -82,18 +88,20 @@ const Comment = ({ postId }) => {
         comments.map(({ commentId, user, comment, userName }) => (
           <div key={commentId} className="mb-2 border p-3 rounded-lg md:flex justify-between overflow-x-hidden">
             <div className="text-gray-700 whitespace-pre-wrap">
-              <span className="font-bold text-indigo-900">{userName}:</span> 
-              <p className="font-medium mt-1 text-gray-900">{comment}</p> 
+              <span className="font-bold text-indigo-900">{userName}:</span>
+              <p className="font-medium mt-1 text-gray-900">{comment}</p>
             </div>
             {user === currentlyLoggedinUser?.uid && (
               <button
                 onClick={() => delComment(commentId)}
                 className="text-red-500 px-5 py-1 md:py-0 border border-red-500 rounded-md transition duration-300 hover:bg-red-500 mt-4 md:mt-0 hover:text-white focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200"
               >
-               Delete
+                Delete
               </button>
             )}
           </div>
+
+
         ))
       )}
     </div>

@@ -58,7 +58,7 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="mt-28 bg-gray-50 container mx-auto p-2 rounded-md">
+        <div className="mt-28 container mx-auto p-2 rounded-md">
             {loading ? (
                 <div className="flex items-center justify-center h-4/5">
                     <div className="text-center">
@@ -66,7 +66,7 @@ const Dashboard = () => {
                             height={100}
                             width={100}
                             radius={5}
-                            color="#1d1d1d"
+                            color="#fff"
                             ariaLabel="ball-triangle-loading"
                             wrapperStyle={{}}
                             wrapperClass=""
@@ -80,10 +80,10 @@ const Dashboard = () => {
                         <EmptyPage/>
                     ) : (
                         userPosts.map((post) => (
-                            <div key={post.id} className="w-full px-8 py-4 mb-3 bg-white rounded-lg shadow-md items-center">
+                            <div key={post.id} className="w-full px-8 py-4 mb-3 bg-violet-50 rounded-lg shadow-md items-center">
                                 <div className="md:flex justify-between">
                                     <div className="mt-2">
-                                        <h2 className="text-xl font-bold text-gray-700" tabIndex="0">{post.title}</h2>
+                                        <h2 className="text-2xl font-bold text-gray-700" tabIndex="0">{post.title}</h2>
                                         <p className="mt-2 text-gray-600 text-justify mb-3">{post.isExpanded ? post.post : `${post.post.slice(0, 100)}...`}</p>
                                     </div>
                                     <div>

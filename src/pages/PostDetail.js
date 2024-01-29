@@ -1,8 +1,6 @@
-// PostDetail.js
-
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { doc, getDoc, collection, query, where, onSnapshot, orderBy } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { BallTriangle } from 'react-loader-spinner';
 import bg from '../assets/bg.webp';
@@ -40,7 +38,7 @@ const PostDetail = () => {
             height={100}
             width={100}
             radius={5}
-            color="#1d1d1d"
+            color="#fff"
             ariaLabel="ball-triangle-loading"
             wrapperStyle={{}}
             wrapperClass=""
@@ -60,19 +58,21 @@ const PostDetail = () => {
       <div>
         <img src={bg} alt="bg-img" className='object-cover w-full h-full' />
       </div>
+      <div className='p-6'>
 
-      <div className="container mx-auto p-4">
-        <div className="bg-white shadow-md p-4 mb-4">
-          <h2 className="text-4xl font-bold mb-4 text-indigo-700 text-center">{post.title}</h2>
-          <p className="text-gray-700 mb-4 leading-loose text-justify">{post.post}</p>
-          <div className="md:flex items-center justify-between mb-2">
-            <p className="text-gray-500 text-sm my-4 md:mb-0">
-              Author: <span className="text-purple-700">{post.author?.name}</span>
-            </p>
+        <div className="container mx-auto">
+          <div className="bg-violet-50 shadow-md p-4 mb-4 rounded-md">
+            <h2 className="text-4xl font-bold mb-4 text-violet-950 text-center">{post.title}</h2>
+            <p className="text-black font-semibold mb-4 leading-loose text-justify">{post.post}</p>
+            <div className="md:flex items-center justify-between mb-2">
+              <p className="text-gray-500 text-sm my-4 md:mb-0">
+                Author: <span className="text-purple-700">{post.author?.name}</span>
+              </p>
+            </div>
           </div>
-          <div className='mt-4'>
-            <Comment postId={postId} />
-          </div>
+        </div>
+        <div className='container mx-auto bg-violet-50 rounded-md'>
+          <Comment postId={postId} />
         </div>
       </div>
     </div>

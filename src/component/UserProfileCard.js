@@ -29,7 +29,7 @@ const UserProfileCard = () => {
   const photoURL = user ? (user.photoURL || '') : 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png';
 
   return (
-    <div className="flex flex-col justify-center w-96 mx-auto p-6 shadow-md rounded-xl sm:px-12 mt-28 md:mt-36 md:bg-slate-100">
+    <div className="flex flex-col justify-center w-96 mx-auto p-6 shadow-md rounded-xl sm:px-12 mt-28 md:mt-36 bg-violet-50">
       {isLoading ? (
         <div className="flex items-center justify-center h-4/5">
           <div className="text-center">

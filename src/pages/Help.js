@@ -96,7 +96,7 @@ const Help = () => {
             height={100}
             width={100}
             radius={5}
-            color="#1d1d1d"
+            color="#fff"
             ariaLabel="ball-triangle-loading"
             wrapperStyle={{}}
             wrapperClass=""
@@ -106,13 +106,13 @@ const Help = () => {
       </div>
       ) : (
         <form className='md:w-4/6 mx-auto' ref={form} onSubmit={sendEmail}>
-          <h2 className='mb-8 font-semibold text-slate-800 text-3xl'>
+          <h2 className='mb-8 font-semibold text-slate-100 text-3xl'>
             Contact Here!
           </h2>
           <div className='mb-5'>
             <label
               htmlFor='text'
-              className='block mb-2 text-slate-800 text-sm font-medium'
+              className='block mb-2 text-slate-100 text-sm font-medium'
             >
               Your Name
             </label>
@@ -121,7 +121,7 @@ const Help = () => {
               value={formData.user_name}
               name='user_name'
               id='text'
-              className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
+              className='bg-violet-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
               placeholder='Enter your name..'
               onChange={handleChange}
             />
@@ -129,7 +129,7 @@ const Help = () => {
           <div className='mb-5'>
             <label
               htmlFor='email'
-              className='block mb-2 text-slate-800 text-sm font-medium'
+              className='block mb-2 text-slate-100 text-sm font-medium'
             >
               Your Email
             </label>
@@ -138,7 +138,7 @@ const Help = () => {
               value={formData.user_email}
               id='email'
               name='user_email'
-              className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
+              className='bg-violet-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
               placeholder='Enter your email..'
               onChange={handleChange}
             />
@@ -146,7 +146,7 @@ const Help = () => {
           <div className='mb-5'>
             <label
               htmlFor='message'
-              className='block mb-2 text-sm font-medium text-slate-800'
+              className='block mb-2 text-sm font-medium text-slate-100'
             >
               Message
             </label>
@@ -156,7 +156,7 @@ const Help = () => {
               id='message'
               name='message'
               rows='4'
-              className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+              className='block p-2.5 w-full text-sm text-gray-900 bg-violet-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500'
               placeholder='Feel free to ask what you think..'
             ></textarea>
           </div>

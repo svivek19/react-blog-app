@@ -72,7 +72,7 @@ const CreatePost = ({ isAuth }) => {
             height={100}
             width={100}
             radius={5}
-            color="#1d1d1d"
+            color="#fff"
             ariaLabel="ball-triangle-loading"
             wrapperStyle={{}}
             wrapperClass=""
@@ -84,7 +84,7 @@ const CreatePost = ({ isAuth }) => {
   }
 
   return (
-    <div className='mt-28 w-11/12 md:w-5/6 mx-auto'>
+    <div className='mt-36 w-11/12 md:w-5/6 mx-auto'>
       <ToastContainer
         position="top-center"
         autoClose={3000}
@@ -99,14 +99,14 @@ const CreatePost = ({ isAuth }) => {
         theme="light"
       />
       <form className='md:w-4/6 mx-auto'>
-        <h2 className='mb-8 font-semibold text-slate-800 text-3xl'>Create a Post</h2>
+        <h2 className='mb-8 font-semibold text-slate-100 text-3xl'>Create a Post</h2>
         <div className="mb-5">
-          <label htmlFor="text" className="block mb-2 text-slate-800 text-sm font-medium">Title</label>
-          <input type="text" value={title} name="title" id="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
+          <label htmlFor="text" className="block mb-2 text-slate-100 text-sm font-medium">Title</label>
+          <input type="text" value={title} name="title" id="text" className="bg-violet-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
         </div>
         <div className="mb-5">
-          <label htmlFor="post" className="block mb-2 text-sm font-medium text-slate-800">Post</label>
-          <textarea onChange={(e) => setPost(e.target.value)} value={post} id="post" name='post' rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Post..."></textarea>
+          <label htmlFor="post" className="block mb-2 text-sm font-medium text-slate-100">Post</label>
+          <textarea onChange={(e) => setPost(e.target.value)} value={post} id="post" name='post' rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-violet-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Post..."></textarea>
         </div>
 
         <div>

@@ -31,13 +31,13 @@ function Navbar({ isAuth, setIsAuth }) {
     return (
         <div>
             <div className='hidden md:block'>
-                <nav className="fixed w-full z-20 top-0 start-0 border-b border-gray-200 bg-slate-50">
+                <nav className="fixed w-full z-20 top-0 start-0 border-b border-gray-200 bg-violet-50">
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                         <div className="flex items-center space-x-3 rtl:space-x-reverse">
                             <Link to={'/'}>
                                 <img src="https://freepngimg.com/save/36006-anonymous/500x500" className="h-10" alt="brand Logo" />
                             </Link>
-                            <Link to={'/'} className="self-center text-2xl font-semibold whitespace-nowrap font-mono">VIVEK</Link>
+                            <Link to={'/'} className="self-center text-2xl font-semibold whitespace-nowrap font-mono hover:text-violet-800">VIVEK</Link>
                         </div>
 
                         {isMobile && (
@@ -78,7 +78,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                     <li>
                                         <NavLink
                                             to={'/'}
-                                            className={`hover:text-blue-700 ${location.pathname === '/' && 'text-blue-700'}`}
+                                            className={`hover:text-violet-800 ${location.pathname === '/' && 'text-violet-800'}`}
                                             aria-current="page"
                                         >
                                             Home
@@ -89,7 +89,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                             <li>
                                                 <NavLink
                                                     to={'/createpost'}
-                                                    className={`hover:text-blue-700 mr-8 ${location.pathname === '/createpost' && 'text-blue-700'}`}
+                                                    className={`hover:text-violet-800 mr-8 ${location.pathname === '/createpost' && 'text-violet-800'}`}
                                                     aria-current="page"
                                                 >
                                                     Create Blog
@@ -98,7 +98,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                             <li>
                                                 <NavLink
                                                     to={'/dashboard'}
-                                                    className={`hover:text-blue-700 ${location.pathname === '/dashboard' && 'text-blue-700'}`}
+                                                    className={`hover:text-violet-800 ${location.pathname === '/dashboard' && 'text-violet-800'}`}
                                                     aria-current="page"
                                                 >
                                                     Dashboard
@@ -110,7 +110,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                     <li>
                                         <NavLink
                                             to={'/help'}
-                                            className={`hover:text-blue-700 ${location.pathname === '/help' && 'text-blue-700'}`}
+                                            className={`hover:text-violet-800 ${location.pathname === '/help' && 'text-violet-800'}`}
                                             aria-current="page"
                                         >
                                             Help
@@ -172,7 +172,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                         <li>
                                             <NavLink
                                                 to={'/'}
-                                                className={`block py-2 px-3 rounded ${location.pathname === '/' && 'bg-blue-700 text-white'}`}
+                                                className={`block py-2 px-3 rounded ${location.pathname === '/' && 'bg-violet-950 text-white'}`}
                                                 aria-current="page"
                                                 onClick={closeMobileMenu}
                                             >
@@ -184,7 +184,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                             <li>
                                                 <NavLink
                                                     to={'/createpost'}
-                                                    className={`block py-2 px-3 rounded ${location.pathname === '/createpost' && 'bg-blue-700 text-white'}`}
+                                                    className={`block py-2 px-3 rounded ${location.pathname === '/createpost' && 'bg-violet-950 text-white'}`}
                                                     aria-current="page"
                                                     onClick={closeMobileMenu}
                                                 >
@@ -194,7 +194,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                              <li>
                                              <NavLink
                                                  to={'/dashboard'}
-                                                 className={`block py-2 px-3 rounded ${location.pathname === '/dashboard' && 'bg-blue-700 text-white'}`}
+                                                 className={`block py-2 px-3 rounded ${location.pathname === '/dashboard' && 'bg-violet-950 text-white'}`}
                                                  aria-current="page"
                                                  onClick={closeMobileMenu}
                                              >
@@ -207,7 +207,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                         <li>
                                             <NavLink
                                                 to={'/help'}
-                                                className={`block py-2 px-3 rounded ${location.pathname === '/help' && 'bg-blue-700 text-white'}`}
+                                                className={`block py-2 px-3 rounded ${location.pathname === '/help' && 'bg-violet-950 text-white'}`}
                                                 aria-current="page"
                                                 onClick={closeMobileMenu}
                                             >

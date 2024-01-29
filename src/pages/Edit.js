@@ -52,12 +52,12 @@ const Edit = () => {
       setLoading(false);
     }, 2000);
 
-    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+    return () => clearTimeout(timer); 
   }, []);
 
 
     return (
-      <div className='mt-28  w-11/12 md:w-5/6 mx-auto'>
+      <div className='mt-28 w-11/12 md:w-5/6 mx-auto'>
         {loading ? (
           <div className="flex items-center justify-center h-4/5">
             <div className="text-center">
@@ -65,7 +65,7 @@ const Edit = () => {
                 height={100}
                 width={100}
                 radius={5}
-                color="#1d1d1d"
+                color="#fff"
                 ariaLabel="ball-triangle-loading"
                 wrapperStyle={{}}
                 wrapperClass=""
@@ -75,14 +75,14 @@ const Edit = () => {
           </div>
         ) : (
           <div className='md:w-4/6 mx-auto'>
-            <h2 className='mb-8 font-semibold text-slate-800 text-3xl'>Edit Post</h2>
+            <h2 className='mb-8 font-semibold text-slate-100 text-3xl'>Edit Post</h2>
             <div className="mb-5">
-              <label htmlFor="text" className="block mb-2 text-slate-800 text-sm font-medium">Title</label>
-              <input type="text" id="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+              <label htmlFor="text" className="block mb-2 text-slate-100 text-sm font-medium">Title</label>
+              <input type="text" id="text" className="bg-violet-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
             </div>
             <div className='mb-5'>
-              <label htmlFor="post" className="block mb-2 text-sm font-medium text-slate-800">Content</label>
-              <textarea id="post" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" value={content} onChange={(e) => setContent(e.target.value)}></textarea>
+              <label htmlFor="post" className="block mb-2 text-sm font-medium text-slate-100">Content</label>
+              <textarea id="post" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-violet-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" value={content} onChange={(e) => setContent(e.target.value)}></textarea>
             </div>
 
             <div>

@@ -35,7 +35,7 @@ const Home = () => {
             height={100}
             width={100}
             radius={5}
-            color="#1d1d1d"
+            color="#fff"
             ariaLabel="ball-triangle-loading"
             wrapperStyle={{}}
             wrapperClass=""
@@ -47,18 +47,18 @@ const Home = () => {
   }
 
   return (
-    <div className="container mt-28 mx-auto p-2 bg-gray-50 rounded-md">
+    <div className="container mt-28 mx-auto p-2 rounded-md">
       {postList.length === 0 ? (
         <EmptyPage/>
       ) : (
         postList.map((post) => (
-          <article key={post.id} className="flex bg-white transition mb-4 hover:shadow-xl">
+          <article key={post.id} className="flex bg-violet-50 rounded-md transition mb-4 hover:shadow-xl">
             <div className="flex flex-1 flex-col justify-between">
               <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
                 <h3 className="font-bold text-2xl uppercase text-gray-900">
                   {post.title}
                 </h3>
-                <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
+                <p className="mt-2 line-clamp-3 text-md text-gray-700">
                   {post.isExpanded ? post.post : `${post.post.slice(0, 150)}...`}
                 </p>
 
@@ -71,7 +71,7 @@ const Home = () => {
               <div className="sm:flex sm:items-end sm:justify-end">
                 <Link
                   to={`/post/${post.id}`}
-                  className="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
+                  className="block bg-slate-700 text-white px-5 py-3 text-center text-xs font-bold uppercase transition hover:bg-slate-600"
                 >
                   Read Blog
                 </Link>
