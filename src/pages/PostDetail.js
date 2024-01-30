@@ -58,10 +58,10 @@ const PostDetail = () => {
       <div>
         <img src={bg} alt="bg-img" className='object-cover w-full h-full' />
       </div>
-      <div className='p-6'>
+      <div className='p-0 md:p-6'>
 
-        <div className="container mx-auto">
-          <div className="bg-violet-50 shadow-md p-4 mb-4 rounded-md">
+        <div className="p-1 md:p-0 md:container mx-auto">
+          <div className="bg-violet-50 shadow-md p-2 md:p-4 mb-4 rounded-md">
             <h2 className="text-4xl font-bold mb-4 text-violet-950 text-center">{post.title}</h2>
             <p className="text-black font-semibold mb-4 leading-loose text-justify">{post.post}</p>
             <div className="md:flex items-center justify-between mb-2">
