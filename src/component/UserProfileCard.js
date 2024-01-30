@@ -29,7 +29,7 @@ const UserProfileCard = () => {
   const photoURL = user ? (user.photoURL || '') : 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png';
 
   return (
-    <div className="flex flex-col justify-center w-96 mx-auto p-6 shadow-md rounded-xl sm:px-12 mt-28 md:mt-36 bg-violet-50">
+    <div className="flex flex-col justify-center w-96 mx-auto p-6 shadow-md rounded-xl sm:px-12 mt-28 md:mt-36 dark:bg-slate-900 bg-violet-50">
       {isLoading ? (
         <div className="flex items-center justify-center h-4/5">
           <div className="text-center">
@@ -47,20 +47,20 @@ const UserProfileCard = () => {
         </div>
       ) : (
         <>
-          <h1 className='text-center text-slate-700 text-3xl uppercase font-medium mb-6'>Profile</h1>
+          <h1 className='text-center text-slate-700 dark:text-gray-100 text-3xl uppercase font-medium mb-6'>Profile</h1>
           <img
             src={photoURL}
             alt="avatar"
-            className="w-28 h-28 mx-auto rounded-full dark:bg-gray-500 mb-3 aspect-square"
+            className="w-28 h-28 mx-auto rounded-full mb-3 aspect-square"
           />
-          <div className="space-y-4 text-center divide-y dark:divide-gray-700">
+          <div className="space-y-4 text-center divide-y divide-slate-500 dark:divide-gray-700">
             <div className="my-2 space-y-5">
-              <h2 className="text-xl font-semibold sm:text-2xl">{displayName}</h2>
-              <p className="px-5 text-xs sm:text-base">{email}</p>
+              <h2 className="text-xl font-semibold sm:text-2xl dark:text-gray-300">{displayName}</h2>
+              <p className="px-5 text-xs sm:text-base dark:text-gray-400">{email}</p>
             </div>
             <div className="flex justify-center pt-4 space-x-4 align-center">
-              <a href='https://github.com/svivek19' target='_blank' className='px-6 font-semibold  py-2 bg-gray-800 text-white rounded-md'>GitHub</a>
-              <a href='https://www.linkedin.com/in/svivek018/' target='_blank' className='px-4 font-semibold  py-2 bg-[royalblue] text-white rounded-md'>LinkedIn</a>
+              <a href='https://github.com/svivek19' target='_blank' className='px-6 font-semibold  py-2 bg-gray-800 dark:bg-slate-200 text-white dark:text-slate-800 rounded-md'>GitHub</a>
+              <a href='https://www.linkedin.com/in/svivek018/' target='_blank' className='px-4 font-semibold  py-2 bg-[royalblue] dark:bg-blue-700 text-white rounded-md'>LinkedIn</a>
             </div>
           </div>
         </>

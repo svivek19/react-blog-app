@@ -121,7 +121,7 @@ const Help = () => {
               value={formData.user_name}
               name='user_name'
               id='text'
-              className='bg-violet-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
+              className='bg-violet-50 border dark:bg-slate-300 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
               placeholder='Enter your name..'
               onChange={handleChange}
             />
@@ -138,7 +138,7 @@ const Help = () => {
               value={formData.user_email}
               id='email'
               name='user_email'
-              className='bg-violet-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
+              className='bg-violet-50 border dark:bg-slate-300 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
               placeholder='Enter your email..'
               onChange={handleChange}
             />
@@ -156,7 +156,7 @@ const Help = () => {
               id='message'
               name='message'
               rows='4'
-              className='block p-2.5 w-full text-sm text-gray-900 bg-violet-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+              className='block p-2.5 w-full text-sm text-gray-900 bg-violet-50 dark:bg-slate-300 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500'
               placeholder='Feel free to ask what you think..'
             ></textarea>
           </div>
@@ -164,7 +164,7 @@ const Help = () => {
           <div>
             <button
               value='Send'
-              className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center'
+              className='text-white bg-blue-700 hover:bg-blue-800 dark:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center'
             >
               Submit
             </button>

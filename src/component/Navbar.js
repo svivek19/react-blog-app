@@ -31,13 +31,13 @@ function Navbar({ isAuth, setIsAuth }) {
     return (
         <div>
             <div className='hidden md:block'>
-                <nav className="fixed w-full z-20 top-0 start-0 border-b border-gray-200 bg-violet-50">
+                <nav className="fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:bg-[#0369A1] dark:border-none bg-violet-50">
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                         <div className="flex items-center space-x-3 rtl:space-x-reverse">
                             <Link to={'/'}>
                                 <img src="https://freepngimg.com/save/36006-anonymous/500x500" className="h-10" alt="brand Logo" />
                             </Link>
-                            <Link to={'/'} className="self-center text-2xl font-semibold whitespace-nowrap font-mono hover:text-violet-800">VIVEK</Link>
+                            <Link to={'/'} className="self-center text-2xl font-semibold whitespace-nowrap font-mono hover:text-violet-800 dark:text-gray-300">VIVEK</Link>
                         </div>
 
                         {isMobile && (
@@ -52,14 +52,14 @@ function Navbar({ isAuth, setIsAuth }) {
                             {!isAuth ? (
                                 <Link
                                     to={'/login'}
-                                    className="bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 text-center text-white ${location.pathname === '/login' && 'bg-blue-800'"
+                                    className="bg-blue-700 hover:bg-blue-800 dark:bg-white dark:text-slate-900 font-medium rounded-lg text-sm px-4 py-2 text-center text-white ${location.pathname === '/login' && 'bg-blue-800'"
                                     onClick={closeMobileMenu}
                                 >
                                     Login
                                 </Link>
                             ) : (
                                 <Link
-                                    className="bg-red-500 hover:bg-red-700 font-medium rounded-lg text-sm px-4 py-2 text-center text-white ${location.pathname === '/logout' && 'bg-red-700'"
+                                    className="bg-red-500 hover:bg-red-700 dark:bg-red-700 font-medium rounded-lg text-sm px-4 py-2 text-center text-white ${location.pathname === '/logout' && 'bg-red-700'"
                                     onClick={() => {
                                         handleLogout();
                                         closeMobileMenu();
@@ -78,7 +78,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                     <li>
                                         <NavLink
                                             to={'/'}
-                                            className={`hover:text-violet-800 ${location.pathname === '/' && 'text-violet-800'}`}
+                                            className={`dark:text-gray-100 hover:text-violet-800 ${location.pathname === '/' && 'text-violet-800 dark:text-gray-100'}`}
                                             aria-current="page"
                                         >
                                             Home
@@ -89,7 +89,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                             <li>
                                                 <NavLink
                                                     to={'/createpost'}
-                                                    className={`hover:text-violet-800 mr-8 ${location.pathname === '/createpost' && 'text-violet-800'}`}
+                                                    className={`dark:text-gray-100 hover:text-violet-800 mr-8 ${location.pathname === '/createpost' && 'text-violet-800 dark:text-gray-100'}`}
                                                     aria-current="page"
                                                 >
                                                     Create Blog
@@ -98,7 +98,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                             <li>
                                                 <NavLink
                                                     to={'/dashboard'}
-                                                    className={`hover:text-violet-800 ${location.pathname === '/dashboard' && 'text-violet-800'}`}
+                                                    className={`dark:text-gray-100 hover:text-violet-800 ${location.pathname === '/dashboard' && 'text-violet-800 dark:text-gray-100'}`}
                                                     aria-current="page"
                                                 >
                                                     Dashboard
@@ -110,7 +110,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                     <li>
                                         <NavLink
                                             to={'/help'}
-                                            className={`hover:text-violet-800 ${location.pathname === '/help' && 'text-violet-800'}`}
+                                            className={`dark:text-gray-100 hover:text-violet-800 ${location.pathname === '/help' && 'text-violet-800 dark:text-gray-100'}`}
                                             aria-current="page"
                                         >
                                             Help
@@ -123,13 +123,13 @@ function Navbar({ isAuth, setIsAuth }) {
                 </nav>
             </div>
             <div className='block md:hidden'>
-                <nav className="fixed w-full z-20 top-0 start-0 border-b border-gray-200 bg-slate-50">
+                <nav className="fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:bg-[#0369A1] dark:border-none bg-slate-50">
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                         <div className="flex items-center space-x-3 rtl:space-x-reverse">
                             <Link to={'/'}>
                                 <img src="https://freepngimg.com/save/36006-anonymous/500x500" className="h-10" alt="brand Logo" />
                             </Link>
-                            <span className="self-center text-2xl font-semibold whitespace-nowrap font-mono">VIVEK</span>
+                            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-slate-200 font-mono">VIVEK</span>
                         </div>
 
                         {isMobile && (
@@ -140,7 +140,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                 {!isAuth ? (
                                     <Link
                                         to={'/login'}
-                                        className={`bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 text-center text-white ${location.pathname === '/login' && 'bg-blue-800'
+                                        className={`bg-blue-700 hover:bg-blue-800 dark:bg-white dark:text-slate-800 font-medium rounded-lg text-sm px-4 py-2 text-center text-white ${location.pathname === '/login' && 'bg-blue-800'
                                             }`}
                                         onClick={closeMobileMenu}
                                     >
@@ -148,7 +148,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                     </Link>
                                 ) : (
                                     <Link
-                                        className={`bg-red-500 hover:bg-red-700 font-medium rounded-lg text-sm px-4 py-2 text-center text-white ${location.pathname === '/logout' && 'bg-red-700'
+                                        className={`bg-red-500 hover:bg-red-700 font-medium rounded-lg dark:bg-red-700 text-sm px-4 py-2 text-center text-white ${location.pathname === '/logout' && 'bg-red-700'
                                             }`}
                                         onClick={() => {
                                             handleLogout();
@@ -168,11 +168,11 @@ function Navbar({ isAuth, setIsAuth }) {
                             <div className={`w-full mt-4 md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
                                 {/* Mobile menu content */}
                                 <div className={`w-full mt-4 md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-                                    <ul className="flex flex-col p-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:border-0 dark:bg-gradark:border-gray-700">
+                                    <ul className="flex flex-col p-4 font-medium border dark:border-none border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:border-0 dark:bg-gradark:border-gray-700">
                                         <li>
                                             <NavLink
                                                 to={'/'}
-                                                className={`block py-2 px-3 rounded ${location.pathname === '/' && 'bg-violet-950 text-white'}`}
+                                                className={`block py-2 px-3 rounded ${location.pathname === '/' && 'bg-violet-950 text-white dark:bg-white dark:text-slate-800'}`}
                                                 aria-current="page"
                                                 onClick={closeMobileMenu}
                                             >
@@ -184,7 +184,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                             <li>
                                                 <NavLink
                                                     to={'/createpost'}
-                                                    className={`block py-2 px-3 rounded ${location.pathname === '/createpost' && 'bg-violet-950 text-white'}`}
+                                                    className={`block py-2 px-3 rounded ${location.pathname === '/createpost' && 'bg-violet-950 text-white dark:bg-white dark:text-slate-800'}`}
                                                     aria-current="page"
                                                     onClick={closeMobileMenu}
                                                 >
@@ -194,7 +194,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                              <li>
                                              <NavLink
                                                  to={'/dashboard'}
-                                                 className={`block py-2 px-3 rounded ${location.pathname === '/dashboard' && 'bg-violet-950 text-white'}`}
+                                                 className={`block py-2 px-3 rounded ${location.pathname === '/dashboard' && 'bg-violet-950 text-white dark:bg-white dark:text-slate-800'}`}
                                                  aria-current="page"
                                                  onClick={closeMobileMenu}
                                              >
@@ -207,7 +207,7 @@ function Navbar({ isAuth, setIsAuth }) {
                                         <li>
                                             <NavLink
                                                 to={'/help'}
-                                                className={`block py-2 px-3 rounded ${location.pathname === '/help' && 'bg-violet-950 text-white'}`}
+                                                className={`block py-2 px-3 rounded ${location.pathname === '/help' && 'bg-violet-950 text-white dark:bg-white dark:text-slate-800'}`}
                                                 aria-current="page"
                                                 onClick={closeMobileMenu}
                                             >

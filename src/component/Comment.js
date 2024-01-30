@@ -62,49 +62,46 @@ const Comment = ({ postId }) => {
 
   return (
     <div>
-  <h3 className="text-center leading-loose text-3xl text-violet-950 font-bold">Comments</h3>
-  <div className="mb-3">
-    <input
-      type="text"
-      value={comment}
-      onChange={(e) => setComment(e.target.value)}
-      placeholder={
-        currentlyLoggedinUser
-          ? "Add a comment..."
-          : "Login to add a comment"
-      }
-      className={`mt-4 p-4 w-full border rounded-md ${currentlyLoggedinUser ? 'bg-blue-100' : 'bg-gray-200'}`}
-      onKeyUp={(e) =>
-        currentlyLoggedinUser ? handleChangeComment(e) : null
-      }
-      disabled={!currentlyLoggedinUser}
-    />
-  </div>
-
-  {isLoadingComments ? (
-    <p className="text-center text-gray-500">Loading comments...</p>
-  ) : (
-    comments.map(({ commentId, user, comment, userName }, index) => (
-      <div key={commentId} className={`mb-4 p-4 border rounded-lg md:flex justify-between items-center overflow-hidden ${index % 2 === 0 ? 'bg-white' : 'bg-gray-100'} shadow-md hover:shadow-lg transition duration-300`}>
-        <div className="text-gray-700">
-          <span className="font-bold text-indigo-900">{userName}:</span>
-          <p className="font-medium mt-1 text-gray-900">{comment}</p>
-        </div>
-        {user === currentlyLoggedinUser?.uid && (
-          <button
-            onClick={() => delComment(commentId)}
-            className="px-4 py-2 border mt-2 md:mt-0 text-white bg-red-500 rounded-md transition duration-300 hover:bg-red-500 hover:text-white focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200"
-          >
-            Delete
-          </button>
-        )}
+      <h3 className="text-center leading-loose text-3xl text-violet-950 dark:text-blue-300 font-bold">Comments</h3>
+      <div className="mb-3">
+        <input
+          type="text"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          placeholder={
+            currentlyLoggedinUser
+              ? "Add a comment..."
+              : "Login to add a comment"
+          }
+          className={`mt-4 p-4 w-full border dark:border-slate-700 rounded-md ${currentlyLoggedinUser ? 'bg-blue-100 dark:bg-slate-800' : 'bg-gray-200 dark:bg-gray-700'}`}
+          onKeyUp={(e) =>
+            currentlyLoggedinUser ? handleChangeComment(e) : null
+          }
+          disabled={!currentlyLoggedinUser}
+        />
       </div>
-    ))
-  )}
-</div>
 
-
-
+      {isLoadingComments ? (
+        <p className="text-center text-gray-500">Loading comments...</p>
+      ) : (
+        comments.map(({ commentId, user, comment, userName }, index) => (
+          <div key={commentId} className={`my-4 p-4 border dark:border-none rounded-lg md:flex justify-between items-center overflow-hidden ${index % 2 === 0 ? 'bg-white dark:bg-slate-950' : 'bg-gray-100 dark:bg-slate-800'} shadow-md hover:shadow-lg transition duration-300`}>
+            <div className="text-gray-700">
+              <span className="font-bold text-indigo-900 dark:text-blue-200">{userName}:</span>
+              <p className="font-medium mt-1 text-gray-900 dark:text-gray-400">{comment}</p>
+            </div>
+            {user === currentlyLoggedinUser?.uid && (
+              <button
+                onClick={() => delComment(commentId)}
+                className="px-4 py-2 border mt-2 md:mt-0 text-white bg-red-500 dark:bg-red-700 dark:border-none rounded-md transition duration-300 hover:bg-red-500 hover:text-white focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200"
+              >
+                Delete
+              </button>
+            )}
+          </div>
+        ))
+      )}
+    </div>
   );
 };
 

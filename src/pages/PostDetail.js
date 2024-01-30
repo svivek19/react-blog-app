@@ -56,22 +56,22 @@ const PostDetail = () => {
   return (
     <div>
       <div>
-        <img src={bg} alt="bg-img" className='object-cover w-full h-full' />
+        <img src={bg} alt="blog-img" className='object-cover w-full h-full' />
       </div>
       <div className='p-0 md:p-6'>
 
         <div className="p-1 md:p-0 md:container mx-auto">
-          <div className="bg-violet-50 shadow-md p-2 md:p-4 mb-4 rounded-md">
-            <h2 className="text-4xl font-bold mb-4 text-violet-950 text-center">{post.title}</h2>
-            <p className="text-black font-semibold mb-4 leading-loose text-justify">{post.post}</p>
+          <div className="bg-violet-50 dark:bg-slate-900 shadow-md p-2 md:p-4 mb-4 rounded-md">
+            <h2 className="text-4xl font-bold mb-4 text-violet-950 dark:text-blue-300 text-center">{post.title}</h2>
+            <p className="text-black dark:text-gray-200 font-semibold mb-4 leading-loose text-justify">{post.post}</p>
             <div className="md:flex items-center justify-between mb-2">
-              <p className="text-gray-500 text-sm my-4 md:mb-0">
-                Author: <span className="text-purple-700">{post.author?.name}</span>
+              <p className="text-gray-500 dark:text-gray-400 text-sm my-4 md:mb-0">
+                Author: <span className="text-purple-700 dark:text-blue-300">{post.author?.name}</span>
               </p>
             </div>
           </div>
         </div>
-        <div className='container mx-auto bg-violet-50 rounded-md'>
+        <div className='container py-2 mx-auto bg-violet-50 dark:bg-slate-900 rounded-md'>
           <Comment postId={postId} />
         </div>
       </div>

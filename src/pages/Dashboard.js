@@ -80,22 +80,22 @@ const Dashboard = () => {
                         <EmptyPage/>
                     ) : (
                         userPosts.map((post) => (
-                            <div key={post.id} className="w-full px-8 py-4 mb-3 bg-violet-50 rounded-lg shadow-md items-center">
+                            <div key={post.id} className="w-full px-8 py-4 mb-3 bg-violet-50 dark:bg-slate-900 rounded-lg shadow-md items-center">
                                 <div className="md:flex justify-between">
                                     <div className="mt-2">
-                                        <h2 className="text-2xl font-bold text-gray-700" tabIndex="0">{post.title}</h2>
-                                        <p className="mt-2 text-gray-600 text-justify mb-3">{post.isExpanded ? post.post : `${post.post.slice(0, 100)}...`}</p>
+                                        <h2 className="text-2xl font-bold text-gray-700 dark:text-gray-100" tabIndex="0">{post.title}</h2>
+                                        <p className="mt-2 text-gray-600 dark:text-gray-200 text-justify mb-3">{post.isExpanded ? post.post : `${post.post.slice(0, 100)}...`}</p>
                                     </div>
                                     <div>
-                                        <Link to={`/edit/${post.id}`} className="bg-slate-800 mr-2 px-3 py-1 text-white rounded-md text-sm" tabIndex="0" role="button">Edit</Link>
-                                        <button className="bg-red-500 px-3 py-1 text-white rounded-md text-sm mr-2" tabIndex="0" onClick={() => handleDelete(post.id)}>Delete</button>
+                                        <Link to={`/edit/${post.id}`} className="bg-slate-800 dark:bg-slate-50 dark:text-black mr-2 px-3 py-1 text-white rounded-md text-sm" tabIndex="0" role="button">Edit</Link>
+                                        <button className="bg-red-500 dark:bg-red-700 px-3 py-1 text-white rounded-md text-sm mr-2" tabIndex="0" onClick={() => handleDelete(post.id)}>Delete</button>
                                     </div>
                                 </div>
 
                                 <div className="flex items-center justify-between mt-4">
-                                    <Link to={`/post/${post.id}`} className="text-blue-600 hover:underline" tabIndex="0">Read more</Link>
+                                    <Link to={`/post/${post.id}`} className="text-blue-600 dark:text-blue-300 dark:underline hover:underline" tabIndex="0">Read more</Link>
                                     <div className=" items-center">
-                                        <p className="font-medium text-slate-500 cursor-pointer" tabIndex="0">~{post?.author.name}</p>
+                                        <p className="font-medium text-slate-500 dark:text-slate-400 cursor-pointer" tabIndex="0">~{post?.author.name}</p>
                                     </div>
                                 </div>
                             </div>
