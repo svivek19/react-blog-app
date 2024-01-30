@@ -85,7 +85,7 @@ const Comment = ({ postId }) => {
     <p className="text-center text-gray-500">Loading comments...</p>
   ) : (
     comments.map(({ commentId, user, comment, userName }, index) => (
-      <div key={commentId} className={`mb-4 p-4 border rounded-lg md:flex justify-between items-center overflow-hidden ${index % 2 === 0 ? 'bg-white' : 'bg-gray-200'} shadow-md hover:shadow-lg transition duration-300`}>
+      <div key={commentId} className={`mb-4 p-4 border rounded-lg md:flex justify-between items-center overflow-hidden ${index % 2 === 0 ? 'bg-white' : 'bg-gray-100'} shadow-md hover:shadow-lg transition duration-300`}>
         <div className="text-gray-700">
           <span className="font-bold text-indigo-900">{userName}:</span>
           <p className="font-medium mt-1 text-gray-900">{comment}</p>
