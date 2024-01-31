@@ -28,8 +28,10 @@ const UserProfileCard = () => {
   const email = user ? (user.email || 'abc@gmail.com') : 'abc@gmail.com';
   const photoURL = user ? (user.photoURL || '') : 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png';
 
+  // console.log(photoURL);
+
   return (
-    <div className="flex flex-col justify-center w-96 mx-auto p-6 shadow-md rounded-xl sm:px-12 mt-28 md:mt-36 dark:bg-slate-900 bg-violet-50">
+    <div className="flex flex-col justify-center w-80 md:w-96 mx-auto p-6 shadow-md rounded-xl sm:px-12 mt-28 md:mt-36 dark:bg-slate-900 bg-violet-50">
       {isLoading ? (
         <div className="flex items-center justify-center h-4/5">
           <div className="text-center">
@@ -37,7 +39,7 @@ const UserProfileCard = () => {
               height={100}
               width={100}
               radius={5}
-              color="#1d1d1d"
+              color="#dbca07"
               ariaLabel="ball-triangle-loading"
               wrapperStyle={{}}
               wrapperClass=""

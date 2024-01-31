@@ -1,15 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import icon from '../assets/setting.png';
 import { Link } from 'react-router-dom';
-import img from '../assets/bg-svg.svg'
+import img from '../assets/bg-svg.svg';
 
 const Settings = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    // Retrieve dark mode preference from local storage or default to false
+    return JSON.parse(localStorage.getItem('darkMode')) || false;
+  });
   const [originalBackgroundImage, setOriginalBackgroundImage] = useState('');
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const bodyElement = document.body;
+
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
 
     if (darkMode) {
       // Store the original background image
@@ -25,11 +35,19 @@ const Settings = () => {
       document.documentElement.classList.remove('dark');
     }
 
-    // Cleanup: Restore the original background image when the component is unmounted
+    document.addEventListener('click', handleOutsideClick);
+
+    // Cleanup: Restore the original background image and remove event listener
     return () => {
       bodyElement.style.backgroundImage = originalBackgroundImage;
+      document.removeEventListener('click', handleOutsideClick);
     };
   }, [darkMode, originalBackgroundImage]);
+
+  useEffect(() => {
+    // Save dark mode preference to local storage
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -40,7 +58,7 @@ const Settings = () => {
   };
 
   return (
-    <div className="relative md:ml-3">
+    <div className="relative md:ml-3" ref={dropdownRef}>
       <div>
         <button
           type="button"
