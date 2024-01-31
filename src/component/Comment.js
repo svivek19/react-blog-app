@@ -73,7 +73,7 @@ const Comment = ({ postId }) => {
               ? "Add a comment..."
               : "Login to add a comment"
           }
-          className={`mt-4 p-4 w-full border dark:border-slate-700 rounded-md ${currentlyLoggedinUser ? 'bg-blue-100 dark:bg-slate-800' : 'bg-gray-200 dark:bg-gray-700'}`}
+          className={`mt-4 p-4 w-full border dark:border-slate-700 dark:text-white rounded-md ${currentlyLoggedinUser ? 'bg-blue-100 dark:bg-slate-800' : 'bg-gray-200 dark:bg-gray-700'}`}
           onKeyUp={(e) =>
             currentlyLoggedinUser ? handleChangeComment(e) : null
           }

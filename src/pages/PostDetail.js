@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { BallTriangle } from 'react-loader-spinner';
-import bg from '../assets/bg.webp';
+import bg from '../assets/blog.svg';
 import Comment from '../component/Comment';
 
 const PostDetail = () => {
@@ -55,8 +55,8 @@ const PostDetail = () => {
 
   return (
     <div>
-      <div>
-        <img src={bg} alt="blog-img" className='object-cover w-full h-full' />
+      <div className='w-5/6 mx-auto mt-24 md:mt-0'>
+        <img src={bg} alt="blog-img" className='object-cover' />
       </div>
       <div className='p-0 md:p-6'>
 
