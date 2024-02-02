@@ -3,7 +3,8 @@ import { getFirestore } from 'firebase/firestore';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAO9fhH53M4vqUS_3Qx7rbfQgAfMfbAw",
+  // Use your firebase apikey
+  apiKey: "AIzaSyAO9fhH53M4vqUS_3Qx7rbF9KxyVfMfbAw",
   authDomain: "blog-vivek.firebaseapp.com",
   projectId: "blog-vivek",
   storageBucket: "blog-vivek.appspot.com",
