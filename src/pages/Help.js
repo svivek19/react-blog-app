@@ -41,9 +41,9 @@ const Help = () => {
       return;
     }
 
-    const api1 = process.env.REACT_APP_FIRST;
-    const api2 = process.env.REACT_APP_SECOND;
-    const api3 = process.env.REACT_APP_THIRD;
+    const api1 = process.env.REACT_APP_PUBLIC_FIRST;
+    const api2 = process.env.REACT_APP_PUBLIC_SECOND;
+    const api3 = process.env.REACT_APP_PUBLIC_THIRD;
 
     emailjs
       .sendForm(api1, api2, form.current, api3)
@@ -118,8 +118,8 @@ const Help = () => {
             </label>
             <input
               type='text'
-              value={formData.user_name}
-              name='user_name'
+              value={formData.from_name}
+              name='from_name'
               id='text'
               className='bg-violet-50 border dark:bg-slate-300 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
               placeholder='Enter your name..'
@@ -135,9 +135,9 @@ const Help = () => {
             </label>
             <input
               type='email'
-              value={formData.user_email}
+              value={formData.reply_to}
               id='email'
-              name='user_email'
+              name='reply_to'
               className='bg-violet-50 border dark:bg-slate-300 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 '
               placeholder='Enter your email..'
               onChange={handleChange}
