@@ -6,8 +6,8 @@ import { BallTriangle } from 'react-loader-spinner';
 
 const Help = () => {
   const [formData, setFormData] = useState({
-    user_name: '',
-    user_email: '',
+    form_name: '',
+    reply_to: '',
     message: '',
   });
   const [isLoading, setIsLoading] = useState(true);
@@ -28,8 +28,8 @@ const Help = () => {
 
     const validateForm = () => {
       return (
-        formData.user_name.trim() !== '' &&
-        formData.user_email.trim() !== '' &&
+        formData.form_name.trim() !== '' &&
+        formData.reply_to.trim() !== '' &&
         formData.message.trim() !== ''
       );
     };
@@ -53,8 +53,8 @@ const Help = () => {
           console.log('message sent');
           // Clear the form after successful submission
           setFormData({
-            user_name: '',
-            user_email: '',
+            form_name: '',
+            reply_to: '',
             message: '',
           });
           toast.success(
