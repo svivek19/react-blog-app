@@ -6,7 +6,7 @@ import { BallTriangle } from 'react-loader-spinner';
 
 const Help = () => {
   const [formData, setFormData] = useState({
-    user_name: '',
+    from_name: '',
     reply_to: '',
     message: '',
   });
@@ -28,7 +28,7 @@ const Help = () => {
 
     const validateForm = () => {
       return (
-        formData.user_name.trim() !== '' &&
+        formData.from_name.trim() !== '' &&
         formData.reply_to.trim() !== '' &&
         formData.message.trim() !== ''
       );
@@ -41,12 +41,8 @@ const Help = () => {
       return;
     }
 
-    const api1 = process.env.REACT_APP_PUBLIC_FIRST;
-    const api2 = process.env.REACT_APP_PUBLIC_SECOND;
-    const api3 = process.env.REACT_APP_PUBLIC_THIRD;
-
     emailjs
-      .sendForm(api1, api2, form.current, api3)
+      .sendForm(process.env.REACT_APP_PUBLIC_SERVICE, process.env.REACT_APP_PUBLIC_TEMPLATE, form.current, process.env.REACT_APP_PUBLIC_API)
       .then(
         (result) => {
           console.log(result.text);
@@ -74,16 +70,7 @@ const Help = () => {
     });
   };
 
-  return (
-    /;
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  
 
   return (
     <div className='mt-28 w-11/12 md:w-5/6 mx-auto'>
