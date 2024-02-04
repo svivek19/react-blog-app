@@ -49,7 +49,7 @@ const Help = () => {
           console.log('message sent');
           // Clear the form after successful submission
           setFormData({
-            user_name: '',
+            from_name: '',
             reply_to: '',
             message: '',
           });
